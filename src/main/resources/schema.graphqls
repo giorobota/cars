@@ -1,0 +1,32 @@
+type Query {
+    getCarById(id: ID!): CarDto
+    getAllCars: [CarDto]
+}
+
+type Mutation {
+    addCar(car: CarInput!): CarDto
+    updateCar(id: ID!, car: CarInput!): CarDto
+    deleteCar(id: ID!): Boolean
+}
+
+type Subscription {
+    carUpdated: CarDto
+    carDeleted: CarDto
+}
+
+type CarDto {
+    id: ID!
+    brand: String!
+    model: String!
+    color: String!
+    year: Int!
+    price: Int!
+}
+
+input CarInput {
+    brand: String!
+    model: String!
+    color: String!
+    year: Int!
+    price: Int!
+}
